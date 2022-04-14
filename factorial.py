@@ -8,6 +8,7 @@ def factorial(value):
     else:
         return None
 
+
 def factorial_recursive(value):
     value = int(value)              # non-integer values not allowed.
     if value > 1:                   # recursively go from value to 1
@@ -16,5 +17,3 @@ def factorial_recursive(value):
         return value
     else:                           # return None for invalid
         return None
-
-

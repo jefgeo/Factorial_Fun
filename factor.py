@@ -13,4 +13,3 @@ def factor(number):
         current_factor += (1 if current_factor % 2 == 0 else 2)
 
     return factors
-
