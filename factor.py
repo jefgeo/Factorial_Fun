@@ -1,4 +1,5 @@
-def factor(number):
+def get_factors(number):
+    # list of factors.  if a factor is used multiple times, it will appear multiple times in the list
     factors = []
     number = int(number)
     if number in [-1, 0, 1]:
@@ -12,11 +13,13 @@ def factor(number):
         current_factor += (1 if current_factor % 2 == 0 else 2)
     return factors
 
+
 def check_list(n, d):
     for number in n:
         if number % d != 0:
             return False
     return True
+
 
 def greatest_common_factor(numbers):
     loop_value = abs(int(numbers[0]))
@@ -30,6 +33,7 @@ def greatest_common_factor(numbers):
 
 
 def gather_factors(factors):
+    # gathers repeated factors and stores in a list of lists.  First element is factor, 2nd element is exponent
     gathered_factors = []
     i = factors[0]
     factor_count = 0
@@ -49,7 +53,7 @@ def least_common_denominator(denominators):
     lcd = 1
     combined = {}
     for denominator in denominators:
-        factors = gather_factors(factor(denominator))
+        factors = gather_factors(get_factors(denominator))
         for f in factors:
             if f[0] in combined:
                 if combined[f[0]] < f[1]:
@@ -59,11 +63,3 @@ def least_common_denominator(denominators):
     for key in combined:
         lcd = lcd * key ** combined[key]
     return lcd
-
-
-print(greatest_common_factor([12, 15]))
-
-print(least_common_denominator([12, 15, 2, 9, 3, 7]))
-
-
-
